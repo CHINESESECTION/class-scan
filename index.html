@@ -217,6 +217,73 @@
         /* ===== v2 ADDITIONS ===== */
         .tab-num { display:inline-flex; align-items:center; justify-content:center; width:19px; height:19px; border-radius:50%; background:rgba(255,255,255,0.22); font-size:0.72rem; font-weight:700; margin-right:7px; line-height:1; }
         .nav-tab.active .tab-num { background:var(--ug-gold); color:#0b2545; }
+        .cloud-btn { background:rgba(255,255,255,0.10); border-left:1px solid rgba(255,255,255,0.2) !important; }
+        .cloud-btn i { margin-right:6px; color:var(--ug-gold); }
+        .sync-pill { display:inline-flex; align-items:center; gap:8px; font-size:0.76rem; padding:4px 10px; border-radius:14px; background:#eef2f7; color:#456; white-space:nowrap; }
+        .sync-btn { width:34px; height:34px; border-radius:50%; border:2px solid rgba(255,255,255,0.45); background:rgba(255,255,255,0.14); color:#fff; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; margin-left:6px; transition:.2s; flex:0 0 auto; }
+        .sync-btn:hover { background:rgba(255,255,255,0.28); }
+        .sync-btn .sync-emoji { font-size:1.05rem; line-height:1; }
+        .sync-btn.spin .sync-emoji { animation: syncspin 0.9s linear infinite; }
+        /* status shown as a coloured ring around the sync emoji (system palette) */
+        .sync-btn.err { border-color:#003262; box-shadow:0 0 0 3px rgba(0,50,98,0.30); }
+        .sync-btn.ok { border-color:#f2a900; box-shadow:0 0 0 3px rgba(242,169,0,0.32); }
+        @keyframes syncspin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+        .sync-on { background:#e6f7ec; color:#1a7f43; }
+        .sync-err { background:#fdeaea; color:#c0392b; }
+        .sync-off { background:#eef0f3; color:#8a93a0; }
+        .sync-link { border:none; background:transparent; color:inherit; text-decoration:underline; cursor:pointer; font-size:0.74rem; padding:0 2px; }
+        .sync-help { font-size:0.82rem; color:#667; line-height:1.5; }
+
+
+        /* --- CLOUD SYNC MODAL - system (UG navy) theme --- */
+        .cs-modal-overlay { position: fixed; inset: 0; background: rgba(0, 33, 71, 0.42); backdrop-filter: blur(5px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .cs-modal-card { background: #ffffff; color: #1a1a1a; width: 100%; max-width: 640px; border-radius: 22px; box-shadow: 0 28px 90px rgba(0,0,0,0.28); border: 1px solid rgba(0, 50, 98, 0.18); overflow: hidden; }
+        .cs-modal-header { display: flex; align-items: center; gap: 16px; padding: 22px 28px; border-bottom: 1px solid rgba(0, 50, 98, 0.12); background: var(--ug-blue); }
+        .cs-sync-icon { width: 48px; height: 48px; border-radius: 16px; background: #ffffff; display: flex; align-items: center; justify-content: center; color: var(--ug-blue); font-size: 1.45rem; box-shadow: 0 6px 18px rgba(0,0,0,0.22); flex: 0 0 auto; }
+        .cs-modal-title { flex: 1; }
+        .cs-modal-title h3 { margin: 0; font-size: 1.25rem; color: #ffffff; letter-spacing: 0.2px; }
+        .cs-modal-title span { display: block; font-size: 0.81rem; color: rgba(255,255,255,0.82); margin-top: 3px; }
+        .cs-modal-title span.on { color: var(--ug-gold); font-weight: 600; }
+        .cs-modal-title span.err { color: #ffd1d1; font-weight: 600; }
+        .cs-modal-close { margin-left: auto; background: rgba(255,255,255,0.14); border: none; color: #ffffff; width: 36px; height: 36px; border-radius: 10px; cursor: pointer; transition: 0.2s; font-size: 1rem; }
+        .cs-modal-close:hover { background: rgba(255,255,255,0.26); }
+        .cs-modal-body { padding: 26px 28px; background: #ffffff; }
+        .cs-section { margin-bottom: 18px; }
+        .cs-section-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ug-blue); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
+        .cs-input { width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 10px; padding: 11px 14px; color: #1a1a1a; font-size: 0.94rem; outline: none; transition: 0.2s; box-sizing: border-box; }
+        .cs-input:focus { border-color: var(--ug-gold); background: #ffffff; box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18); }
+        .cs-input::placeholder { color: #9ca3af; }
+        .cs-select { width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 10px; padding: 11px 14px; color: #1a1a1a; font-size: 0.94rem; outline: none; }
+        .cs-checks { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: #f5f8fc; border: 1px solid #d1d5db; border-radius: 10px; max-height: 200px; overflow-y: auto; }
+        .cs-checks label { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: #1a1a1a; cursor: pointer; }
+        .cs-checks input { accent-color: var(--ug-blue); width: 17px; height: 17px; }
+        .cs-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .cs-toggle-row { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; padding: 16px; background: #eef4fb; border-radius: 14px; border: 1px solid rgba(0, 50, 98, 0.15); }
+        .cs-toggle-label { font-weight: 600; color: #1a1a1a; font-size: 0.96rem; }
+        .cs-switch { position: relative; display: inline-block; width: 52px; height: 30px; }
+        .cs-switch input { opacity: 0; width: 0; height: 0; }
+        .cs-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #9ca3af; transition: .3s; border-radius: 30px; }
+        .cs-slider:before { position: absolute; content: ""; height: 24px; width: 24px; left: 3px; bottom: 3px; background: white; transition: .3s; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.25); }
+        .cs-switch input:checked + .cs-slider { background: var(--ug-gold); }
+        .cs-switch input:checked + .cs-slider:before { transform: translateX(22px); }
+        .cs-input-group { display: flex; align-items: center; gap: 10px; }
+        .cs-input-group .cs-input { width: 80px; text-align: center; }
+        .cs-input-group span { color: #4b5563; font-size: 0.9rem; }
+        .cs-check-row { display: flex; align-items: flex-end; padding-bottom: 10px; }
+        .cs-check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.9rem; color: #374151; line-height: 1.45; }
+        .cs-check input { margin-top: 3px; accent-color: var(--ug-blue); width: 16px; height: 16px; }
+        .cs-modal-footer { display: flex; justify-content: flex-end; gap: 10px; padding: 20px 28px; border-top: 1px solid #f3f4f6; background: #fafafa; }
+        .cs-btn { padding: 11px 18px; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 7px; }
+        .cs-btn-primary { background: var(--ug-blue); color: #ffffff; }
+        .cs-btn-primary:hover { background: #00203f; }
+        .cs-btn-gold { background: var(--ug-gold); color: var(--ug-blue); }
+        .cs-btn-gold:hover { background: #c19b2e; }
+        .cs-btn-ghost { background: #ffffff; color: var(--ug-blue); border: 1px solid rgba(0, 50, 98, 0.35); }
+        .cs-btn-ghost:hover { background: #f0f5fb; }
+        .cs-diag { margin-top: 14px; padding: 12px 14px; border-radius: 10px; font-size: 0.85rem; line-height: 1.45; display: none; }
+        .cs-diag.err { display: block; background: #eef4fb; color: #003262; border: 1px solid rgba(0,50,98,0.20); }
+        .cs-diag.info { display: block; background: #eef4fb; color: #003262; border: 1px solid rgba(0,50,98,0.2); }
+        .cs-diag.ok { display: block; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
         #week-sync-toast { position:fixed; bottom:22px; right:22px; z-index:9999; display:none; background:#0b2545; color:#fff; padding:12px 18px; border-radius:8px; box-shadow:0 6px 24px rgba(0,0,0,.25); font-weight:600; font-size:.92rem; }
         .wiz-course-block .btn { border:0; cursor:pointer; }
         .sp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(58px,1fr)); gap:6px; }
@@ -228,6 +295,58 @@
         .sp-course { border:1px solid #e6e6ea; border-radius:8px; padding:14px; margin-bottom:14px; }
         .sp-bar { height:8px; border-radius:4px; background:#eceef1; overflow:hidden; margin-top:6px; }
         .sp-bar i { display:block; height:100%; background:linear-gradient(90deg,#1a7f4b,#39b36b); }
+
+        /* ===================== RESPONSIVE: phone / tablet / TV ===================== */
+        /* Large screens & TVs — give the content room to breathe (no cramped column) */
+        @media (min-width: 1800px) {
+          .view-container, .container { max-width: 1600px; }
+          .dash-grid, .course-grid, .dash-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+        }
+        /* Tablet */
+        @media (max-width: 1024px) {
+          .view-container, .container { padding: 16px; max-width: 100%; }
+          .db-banner { flex-direction: column; align-items: flex-start; gap: 12px; }
+        }
+        /* Phone */
+        @media (max-width: 768px) {
+          .main-nav { flex-wrap: wrap; padding: 8px 12px; gap: 6px; }
+          .nav-brand-main { font-size: 1.15rem; }
+          .nav-brand-sub { font-size: 0.72rem; }
+          .nav-tabs { width: 100%; order: 3; overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 2px; padding-bottom: 2px; }
+          .nav-tab { padding: 10px 12px; font-size: 0.85rem; white-space: nowrap; }
+          .sys-dropdown { margin-left: auto; }
+          .view-container, .container { padding: 12px 10px; }
+          .auth-box { width: auto; max-width: 92%; padding: 28px 20px; }
+          .att-toolbar { flex-direction: column; align-items: stretch; }
+          .ctl-group { width: 100%; }
+          .att-toolbar select, .att-toolbar input { width: 100%; }
+          .control-bar { flex-direction: column; align-items: stretch; }
+          .control-bar .flex { flex-wrap: wrap; }
+          .att-week-select, #att-course, #att-week { min-width: 0 !important; flex: 1; }
+          /* Let wide data tables scroll sideways instead of breaking the layout */
+          .att-table-wrap { overflow-x: auto; }
+          #att-content { overflow-x: auto; }
+          .att-table th, .att-table td { padding: 10px; font-size: 0.85rem; white-space: nowrap; }
+          .data-table { font-size: 0.85rem; }
+          .data-table th, .data-table td { padding: 10px 8px; white-space: nowrap; }
+          /* Cloud-sync modal comfortable on small screens */
+          .cs-modal-overlay { padding: 10px; }
+          .cs-modal-card { border-radius: 16px; }
+          .cs-modal-header { padding: 16px 18px; }
+          .cs-modal-body { padding: 18px 16px; }
+          .cs-modal-footer { flex-wrap: wrap; padding: 14px 16px; }
+          .cs-btn { flex: 1; justify-content: center; }
+          .cs-grid-2 { grid-template-columns: 1fr; }
+          .modal-content { padding: 18px; width: 96vw !important; }
+          .db-banner { flex-direction: column; align-items: flex-start; gap: 10px; }
+          .dash-cards, .course-grid, .dash-grid { grid-template-columns: 1fr 1fr; }
+        }
+        /* Very small phones */
+        @media (max-width: 420px) {
+          .dash-cards, .course-grid, .dash-grid { grid-template-columns: 1fr; }
+          .nav-brand-main { font-size: 1rem; }
+          .att-table th, .att-table td { font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -274,6 +393,7 @@
                     <button class="nav-tab" onclick="switchView('attendance')"><span class="tab-num">3</span>Class Attendance</button>
                     <button class="nav-tab" onclick="switchView('ta')"><span class="tab-num">4</span>TA Portal</button>
                     <button class="nav-tab" onclick="switchView('chisag')" style="border-left:1px solid rgba(255,255,255,0.2); color:var(--ug-gold);"><span class="tab-num">5</span>CHISAG System</button>
+                    <button id="sync-btn" class="sync-btn" title="Sync attendance now" onclick="syncApp.runUI()"><span class="sync-emoji">🔄</span></button>
                 </div>
                 <div class="sys-dropdown">
                     <button class="sys-btn">System Menu <span>▼</span></button>
@@ -283,6 +403,7 @@
                         <hr style="margin:5px 0; border:0; border-top:1px solid #eee;">
                         <button onclick="archiveViewApp.open()">📜 View Archives</button>
                         <button onclick="backupApp.openModal()">⚙️ Backup / Restore</button>
+                        <button onclick="syncApp.openModal()">☁ Cloud Sync Settings</button>
                         <button onclick="setupApp.open(true)">✎ Edit System Layout</button>
                         <button onclick="authApp.logout()" style="color:var(--danger); border-top:1px solid #eee; font-weight:bold;">⏻ Logout</button>
                     </div>
@@ -534,6 +655,93 @@
         </div>
     </div>
 
+    <div id="cloud-sync-modal" class="cs-modal-overlay">
+      <div class="cs-modal-card">
+        <div class="cs-modal-header">
+          <div class="cs-sync-icon"><span style="font-size:1.45rem;">🔄</span></div>
+          <div class="cs-modal-title">
+            <h3>Cloud Attendance Sync</h3>
+            <span id="sync-modal-status">Auto-sync is OFF</span>
+          </div>
+          <button class="cs-modal-close" onclick="syncApp.closeModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cs-modal-body">
+          <div class="cs-toggle-row">
+            <label class="cs-switch">
+              <input type="checkbox" id="sync-enabled">
+              <span class="cs-slider"></span>
+            </label>
+            <span class="cs-toggle-label">Enable automatic cloud sync</span>
+          </div>
+
+          <div id="sync-diag" class="cs-diag"></div>
+
+          <div class="cs-section">
+            <div class="cs-section-title"><i class="fas fa-cloud"></i> Sync Channel</div>
+            <select id="sync-mode" class="cs-select">
+              <option value="pull">Pull from Google Sheet (recommended)</option>
+              <option value="push">Push via Firebase (real-time)</option>
+              <option value="both">Both channels</option>
+            </select>
+          </div>
+
+          <div class="cs-grid-2">
+            <div class="cs-section">
+              <div class="cs-section-title"><i class="fas fa-link"></i> Apps Script URL</div>
+              <input id="sync-sheeturl" type="text" class="cs-input" placeholder="https://script.google.com/macros/s/.../exec">
+            </div>
+            <div class="cs-section">
+              <div class="cs-section-title"><i class="fas fa-key"></i> Shared Secret</div>
+              <input id="sync-secret" type="text" class="cs-input" placeholder="Secret key">
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <div class="cs-section-title"><i class="fas fa-book"></i> My Courses</div>
+            <div id="sync-courses" class="cs-checks"></div>
+          </div>
+
+          <div class="cs-grid-2">
+            <div class="cs-section">
+              <div class="cs-section-title"><i class="fas fa-database"></i> Firebase URL</div>
+              <input id="sync-firebaseurl" type="text" class="cs-input" placeholder="https://...firebaseio.com/">
+            </div>
+            <div class="cs-section">
+              <div class="cs-section-title"><i class="fas fa-folder"></i> Firebase Node</div>
+              <input id="sync-firebasenode" type="text" class="cs-input" value="attendanceSync">
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <div class="cs-section-title"><i class="fas fa-lock"></i> Firebase Auth Token</div>
+            <input id="sync-firebasesecret" type="text" class="cs-input" placeholder="RTDB token (optional)">
+          </div>
+
+          <div class="cs-grid-2">
+            <div class="cs-section">
+              <div class="cs-section-title"><i class="fas fa-clock"></i> Poll Interval</div>
+              <div class="cs-input-group">
+                <input id="sync-poll" type="number" min="1" value="2" class="cs-input">
+                <span>minutes</span>
+              </div>
+            </div>
+            <div class="cs-section cs-check-row">
+              <label class="cs-check">
+                <input type="checkbox" id="sync-autoenroll">
+                <span>Auto-enroll unknown-but-registered students</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="cs-modal-footer">
+          <button class="cs-btn cs-btn-ghost" onclick="syncApp.closeModal()">Close</button>
+          <button class="cs-btn cs-btn-primary" onclick="syncApp.testConnection()"><i class="fas fa-plug"></i> Test Connection</button>
+          <button class="cs-btn cs-btn-primary" onclick="syncApp.testNow()"><i class="fas fa-sync-alt"></i> Sync Now</button>
+          <button class="cs-btn cs-btn-gold" onclick="syncApp.save()">Save Settings</button>
+        </div>
+      </div>
+    </div>
+
     <div id="setup-modal" class="modal" style="display:none;">
         <div class="modal-content" style="max-height:90vh; overflow-y:auto;">
             <span class="modal-close" onclick="document.getElementById('setup-modal').style.display='none'">&times;</span>
@@ -726,7 +934,7 @@
     var setupApp, backupApp, editNameApp, dashApp, noteApp, dbView, chisagApp, attApp, archiveViewApp, authApp, profileApp;
     const S1_COURSES = ['CHIN 103','CHIN 105','CHIN 201','CHIN 203','CHIN 205','CHIN 301','CHIN 303','CHIN 307','CHIN 311','CHIN 401','CHIN 403','CHIN 407','CHIN 415'];
     const S2_COURSES = ['CHIN 104','CHIN 106','CHIN 202','CHIN 204','CHIN 206','CHIN 302','CHIN 304','CHIN 308','CHIN 312','CHIN 402','CHIN 404','CHIN 408','CHIN 416'];
-    let sysConfig = { name: "Teaching Command Centre", semester: 1, totalWeeks: 13, startDate: new Date().toISOString(), teachCourses: [], attCourses: [], courseDates: {}, attSessions: [] };
+    let sysConfig = { name: "Teaching Command Centre", semester: 1, totalWeeks: 13, startDate: new Date().toISOString(), teachCourses: [], attCourses: [], courseDates: {}, attSessions: [] , cloud: { enabled:false, mode:"pull", sheetUrl:"", secret:"", courses:[], firebaseUrl:"", firebaseNode:"attendanceSync", firebaseSecret:"", pollMin:2, autoEnroll:false, lastSync:0, lastCount:0, status:"idle" } };
 
     /* ======================= v2: MULTI-SESSION COURSE HELPERS =======================
        A course can now meet several times per week. Each meeting is a "session".
@@ -755,6 +963,8 @@
     function displayFromClean(cleanCode) { return courseDisplay(fullFromClean(cleanCode)); }
     function baseCourses() { const out = []; (sysConfig.attCourses || []).forEach(c => { const b = baseLabel(c); if (out.indexOf(b) === -1) out.push(b); }); return out; }
     function siblingKeys(anyLabelOrClean) { const bk = baseKey(fullFromClean(ck(anyLabelOrClean))); const ks = (sysConfig.attCourses || []).filter(c => baseKey(c) === bk).map(c => ck(c)); return ks.length ? ks : [ck(anyLabelOrClean)]; }
+
+    function parseClock(str){ if(!str) return null; var s=String(str).trim().toUpperCase(); var m=s.match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)?/); if(!m) return null; var h=parseInt(m[1],10); var min=m[2]?parseInt(m[2],10):0; if(m[3]==="PM"&&h<12)h+=12; if(m[3]==="AM"&&h===12)h=0; return h*60+min; }
 
     // --- UTILS & DB ---
     function formatName(rawName) { if(!rawName) return "UNKNOWN"; let clean = rawName.replace(/\d+$/, '').replace(/\s*\(.*?\)/g, '').trim(); return clean.replace(/,/g, " ").replace(/\s+/g, " ").trim().toUpperCase(); }
@@ -1316,8 +1526,313 @@
         closeModal: function() { document.getElementById('new-student-modal').style.display='none'; this.pending=[]; }, confirmAddStudents: async function() { let batch = []; let lvl=0; const match = this.course.match(/\d+/); if(match) lvl = Math.floor(parseInt(match[0])/100) * 100; const cleanC = this.course.replace(/\s/g, ''); const targetW = this.week; for(let p of this.pending) { const finalName = formatName(p.name); const fullC = sysConfig.attCourses.find(c => c.replace(/\s/g, '') === cleanC); const s = {id:p.id, name: finalName, level:lvl, courses:[fullC]}; await db.put('students', s); this.cache.push(s); const key = `${cleanC}_W${targetW}_${p.id}`; this.attMap.set(key, 'Present'); batch.push({key, status:'Present', course:cleanC, week:targetW, id:p.id}); } if(batch.length) await db.batchPut('attendance', batch); this.closeModal(); this.updateContext(); alert(`${this.pending.length} New students added and marked Present.`); }, downloadReport: function() { const wb = XLSX.utils.book_new(); const curW = dashApp.currentWeek; sysConfig.attCourses.forEach(c => { const cleanC = c.replace(/\s/g,''); const list = this.cache.filter(s => s.courses && s.courses.includes(c)); list.sort((a,b)=>a.id.localeCompare(b.id)); const data = list.map(s => { let r = {"Index ID": s.id, "Name": s.name}; let t = 0; for(let w=1; w<=sysConfig.totalWeeks; w++) { if(w > curW) { r[`Week ${w}`] = ""; } else { const st = this.getAtt(s.id,w,cleanC); r[`Week ${w}`] = (st === 'Present' ? "1" : "0"); if(st==='Present') t++; } } r["Total"] = t + "/" + sysConfig.totalWeeks; return r; }); const ws = XLSX.utils.json_to_sheet(data); ws['!cols'] = [{wch:15}, {wch:30}, ...Array(sysConfig.totalWeeks).fill({wch:5}), {wch:10}]; XLSX.utils.book_append_sheet(wb, ws, c); }); const fn = getDownloadFileName('AttendanceReport'); XLSX.writeFile(wb, fn); }, finalizeRestore: async function() { const checkedCourses = Array.from(document.querySelectorAll('.att-sel-check:checked')).map(c => c.value); const finalBatch = this.pendingBatch.filter(b => checkedCourses.includes(b.course)); if(finalBatch.length > 0) { await db.batchPut('attendance', finalBatch); await this.sync(); this.updateContext(); alert(`Restoration Complete.\n${finalBatch.length} records saved.`); } document.getElementById('att-confirm-modal').style.display='none'; } 
     };
     
+    // --- SYNCAPP (cloud auto-sync) ---
+    var SYNC_DEFAULTS = {
+      sheetUrl: "https://script.google.com/macros/s/AKfycby9dpF0NLKuE-cXML_hXIjrU9_oxiedissww39A5tN723KY89LPeL3poZWihJONpnUrAw/exec",
+      secret: "UgAtt3nd-Sync-9Xk2QpL7mN4vR8tB",
+      firebaseUrl: "https://class-scan-84ca0-default-rtdb.firebaseio.com/",
+      firebaseNode: "attendanceSync",
+      mode: "pull"
+    };
+    syncApp = {
+      cfg: function(){ if(!sysConfig.cloud) sysConfig.cloud = { enabled:false, mode:SYNC_DEFAULTS.mode||"pull", sheetUrl:SYNC_DEFAULTS.sheetUrl, secret:SYNC_DEFAULTS.secret, courses:[], firebaseUrl:SYNC_DEFAULTS.firebaseUrl, firebaseNode:SYNC_DEFAULTS.firebaseNode, firebaseSecret:"", pollMin:2, autoEnroll:false, lastSync:0, lastCount:0, status:"idle" }; return sysConfig.cloud; },
+      timer: null, _busy: false, _pendingResolve: null,
+      init: async function(){
+        var c = this.cfg();
+        // Auto-heal: if a previously saved (now broken / login-walled) deployment
+        // URL is still in the stored config, replace it with the current working
+        // default so the user doesn't get stuck on an unreachable endpoint.
+        var DEPRECATED = [
+          "AKfycbzhcl6R2izuIg2ISnGLwbqVHwA31xlTOfu1peNn8xOmTJbs6TiyfqRkrbFSHW6csxA2ww",
+          "AKfycbx8TXMyRIUtlbN235N0CLP04nmmfTgAGLLGX_GU0pao",
+          "AKfycbxuKnwRjXHnTUMjYKCp1l9D5-pSsEEJsaF7aew9jmhlNCUR7VPQ3u44eL6pHjMrWidAXQ"
+        ];
+        if(c.sheetUrl && DEPRECATED.some(function(d){ return c.sheetUrl.indexOf(d) >= 0; })){
+          c.sheetUrl = SYNC_DEFAULTS.sheetUrl;
+          try { await db.put("settings", { key:"config", value: sysConfig }); } catch(e){}
+        }
+        if(!c.sheetUrl) c.sheetUrl = SYNC_DEFAULTS.sheetUrl;
+        if(!c.secret) c.secret = SYNC_DEFAULTS.secret;
+        if(!c.firebaseUrl) c.firebaseUrl = SYNC_DEFAULTS.firebaseUrl;
+        if(!c.firebaseNode) c.firebaseNode = SYNC_DEFAULTS.firebaseNode;
+        this.renderStatus();
+        if(c.enabled){ try { await attApp.sync(); } catch(e){} this.start(); }
+      },
+      start: function(){
+        this.stop();
+        var c = this.cfg();
+        if(!c.enabled) return;
+        var ms = Math.max(1, c.pollMin || 2) * 60000;
+        var self = this;
+        this.timer = setInterval(function(){ self.run(); }, ms);
+        this.run();
+        document.addEventListener("visibilitychange", function(){ if(!document.hidden) self.run(); });
+        window.addEventListener("focus", function(){ self.run(); });
+      },
+      stop: function(){ if(this.timer){ clearInterval(this.timer); this.timer = null; } },
+      run: async function(force){
+        var c = this.cfg();
+        if(!c.enabled && !force) return 0;
+        var did = 0;
+        // Manual sync (force=true) does a FULL re-pull so existing sheet scans
+        // can override a manually-set Absent. Auto-poll (force=false) is
+        // incremental for speed.
+        if(c.mode === "pull" || c.mode === "both"){ did += await this.pull(force); }
+        if(c.mode === "push" || c.mode === "both"){ did += await this.pullFirebase(); }
+        c.lastSync = Date.now(); c.lastCount = did; if(did > 0) c.status = "synced";
+        this.renderStatus();
+        if(did > 0){
+          // Re-render whichever attendance view is in use so the change is visible.
+          try { if(typeof attApp !== "undefined" && attApp && attApp.updateContext) await attApp.updateContext(); } catch(e){}
+          try { if(typeof APP !== "undefined" && APP && APP.attendance && APP.attendance.update) APP.attendance.update(); } catch(e){}
+        }
+        return did;
+      },
+      pull: function(full){
+        var c = this.cfg(); var self = this;
+        return new Promise(function(resolve){
+          if(!c.sheetUrl){ resolve(0); return; }
+          if(self._busy){ resolve(0); return; }
+          self._busy = true;
+          var url = c.sheetUrl + (c.sheetUrl.indexOf("?") >= 0 ? "&" : "?") + "secret=" + encodeURIComponent(c.secret || "");
+          var courses = (c.courses || []).map(function(x){ return ck(x).toUpperCase(); });
+          if(courses.length) url += "&courses=" + encodeURIComponent(courses.join(","));
+          // `full` = re-pull EVERY scan (used by manual "Sync Now"). This lets a
+          // manual sync override a student you marked Absent, even if their scan
+          // already existed before. Auto-poll (full=false) uses `since` for speed.
+          if(!full && c.lastSync) url += "&since=" + encodeURIComponent(String(c.lastSync - 5 * 60000));
+          url += "&callback=syncApp._jsonp";
+          var s = document.createElement("script");
+          s.onerror = function(){ self._busy = false; if(self._to){ clearTimeout(self._to); self._to=null; } self.setStatus("error", "Could not load the Apps Script URL. Check: (1) the URL ends in /exec (not /dev), (2) your internet is on, (3) the Apps Script deployment 'Who has access' is set to 'Anyone' — if it's 'Only me' or 'Anyone with Google account', Google redirects to a login page and the sync fails."); resolve(0); };
+          self._pendingResolve = function(n){ self._busy = false; if(self._to){ clearTimeout(self._to); self._to=null; } resolve(n); };
+          self._to = setTimeout(function(){ if(self._busy){ self._busy = false; self.setStatus("error", "The Apps Script did not respond within 60 seconds. Google Apps Script can be very slow on its first run after a period of inactivity (a 'cold start'). Please try again — it almost always succeeds on the second attempt. If it keeps failing, open the /exec URL in a browser to confirm it returns JSON."); resolve(0); } }, 60000);
+          document.body.appendChild(s);
+          s.src = url;
+        });
+      },
+      _jsonp: function(resp){
+        var self = this; if(self._to){ clearTimeout(self._to); self._to=null; } var resolve = this._pendingResolve || function(){};
+        try {
+          if(resp && resp.error){ self.setStatus("error", "Server error: " + (resp.error.message || resp.error)); resolve(0); return; }
+          var rows = (resp && resp.rows) || [];
+          var n = 0;
+          rows.forEach(function(r){ if(self.merge(r)) n++; });
+          // A successful contact (even with 0 new rows) clears any prior error.
+          self.cfg().status = "synced";
+          self.cfg().lastError = "";
+          resolve(n);
+        } catch(e){ self.setStatus("error", "Client error while processing sync response: " + e.message); resolve(0); }
+      },
+      pullFirebase: function(){
+        var c = this.cfg(); var self = this;
+        return new Promise(function(resolve){
+          if(!c.firebaseUrl){ resolve(0); return; }
+          var base = c.firebaseUrl.replace(/\/$/, "");
+          var node = (c.firebaseNode || "attendanceSync").replace(/^\/|\/$/g, "");
+          var url = base + "/" + node + ".json";
+          var params = [];
+          if(c.firebaseSecret) params.push("auth=" + encodeURIComponent(c.firebaseSecret));
+          if(params.length) url += "?" + params.join("&");
+          fetch(url).then(function(r){ return r.json(); }).then(function(obj){
+            var n = 0;
+            if(obj){
+              var since = c.lastSync ? (c.lastSync - 5*60000) : 0;
+              Object.keys(obj).forEach(function(k){
+                var rec = obj[k];
+                if(since && rec && rec.ts && rec.ts < since) return;
+                if(self.merge(rec)) n++;
+              });
+            }
+            resolve(n);
+          }).catch(function(){ resolve(0); });
+        });
+      },
+      merge: function(row){
+        if(!row) return false;
+        var id = this.extractId(String(row.id || ""));
+        var courseRaw = String(row.course || "").trim();
+        if(!id || !courseRaw) return false;
+        var cleanCourse = ck(courseRaw);
+        var cfgCourses = (this.cfg().courses || []).map(function(x){ return ck(x); });
+        if(cfgCourses.length && cfgCourses.indexOf(cleanCourse) === -1) return false;
+        var ts = parseInt(row.ts || "0", 10) || 0;
+        var week = ts ? this.weekFromTs(ts, cleanCourse) : (dashApp.currentWeek || 1);
+        if(week < 1 || week > sysConfig.totalWeeks) return false;
+        var sessionKey = this.sessionKeyForTs(cleanCourse, ts);
+        var key = sessionKey + "_W" + week + "_" + id;
+        if(attApp.attMap.has(key)){
+          var existing = attApp.attMap.get(key);
+          // A scanned record should override a manually-set ABSENT, but should
+          // not overwrite an existing PRESENT (which is already correct).
+          if(existing === "Present") return false;
+        }
+        var student = attApp.cache.find(function(s){ return s.id === id; });
+        if(!student){ this.logException({ id:id, course:courseRaw, week:week, reason:"Not in student database" }); return false; }
+        var enrolled = student.courses && student.courses.some(function(c){ return baseKey(c) === baseKey(courseRaw); });
+        if(!enrolled){
+          if(!this.cfg().autoEnroll){ this.logException({ id:id, name:student.name, course:courseRaw, week:week, reason:"In DB but not enrolled in course" }); return false; }
+          var fullC = baseLabel(fullFromClean(cleanCourse));
+          if(student.courses.indexOf(fullC) === -1) student.courses.push(fullC);
+          db.put("students", student);
+        }
+        attApp.attMap.set(key, "Present");
+        db.put("attendance", { key:key, status:"Present", course:cleanCourse, week:week, id:id });
+        return true;
+      },
+      extractId: function(txt){
+        var m = txt.match(/\b\d{8}\b/);
+        if(m) return m[0];
+        var digits = txt.replace(/\D/g, "");
+        return digits.length >= 8 ? digits.slice(-8) : digits;
+      },
+      weekFromTs: function(ts, courseClean){
+        var startStr = (sysConfig.courseDates && sysConfig.courseDates[fullFromClean(courseClean)]) || sysConfig.startDate;
+        var start = new Date(startStr); start.setHours(0,0,0,0);
+        var d = new Date(ts); d.setHours(0,0,0,0);
+        var diff = Math.round((d - start) / 86400000);
+        return diff < 0 ? 0 : Math.floor(diff / 7) + 1;
+      },
+      sessionKeyForTs: function(courseClean, ts){
+        var d = new Date(ts); if(isNaN(d.getTime())) return courseClean;
+        var dow = d.getDay();
+        var mins = d.getHours() * 60 + d.getMinutes();
+        var sibs = siblingKeys(courseClean);
+        var best = courseClean, bestScore = 1e9;
+        sibs.forEach(function(sk){
+          var m = sessionMeta(sk);
+          if(!m) return;
+          var score = 0;
+          if(m.day !== null && m.day !== undefined && m.day !== ""){ if(parseInt(m.day) === dow) score += 0; else score += 1000; }
+          if(m.time){ var tm = parseClock(m.time); if(tm != null) score += Math.abs(tm - mins); }
+          if(score < bestScore){ bestScore = score; best = sk; }
+        });
+        return best;
+      },
+      logException: function(ex){
+        try { db.put("settings", { key:"sync_exc_" + Date.now() + "_" + (ex.id||""), value: ex, at: Date.now() }); } catch(e){}
+      },
+      setStatus: function(s, msg){
+        var c = this.cfg(); c.status = s;
+        if(msg) c.lastError = msg; else if(s === "synced") c.lastError = "";
+        this.renderStatus();
+      },
+      setDiag: function(html, cls){
+        var d = document.getElementById("sync-diag"); if(!d) return;
+        if(!html){ d.className = "cs-diag"; d.style.display = "none"; d.innerHTML = ""; return; }
+        d.className = "cs-diag " + (cls || "info"); d.style.display = "block"; d.innerHTML = html;
+      },
+      renderStatus: function(){
+        var b = document.getElementById("sync-btn"); if(!b) return;
+        var c = this.cfg();
+        if(!c.enabled){ b.title = "Cloud sync OFF — open System Menu > Cloud Sync Settings"; b.style.opacity = "0.5"; b.classList.remove("err","ok"); }
+        else if(c.status === "error"){ b.title = "Last sync failed — open System Menu > Cloud Sync Settings"; b.style.opacity = "1"; b.classList.add("err"); b.classList.remove("ok"); }
+        else { b.style.opacity = "1"; b.classList.remove("err","ok"); b.title = "Cloud sync ON — last synced " + (c.lastSync ? this.ago(c.lastSync) : "never") + (c.lastCount ? (" (+" + c.lastCount + " scanned)") : ""); }
+      },
+      ago: function(ms){
+        var s = Math.round((Date.now() - ms) / 1000);
+        if(s < 60) return s + "s ago";
+        var m = Math.round(s / 60); if(m < 60) return m + "m ago";
+        return Math.round(m / 60) + "h ago";
+      },
+      openModal: function(){
+        var c = this.cfg();
+        if(!c.sheetUrl) c.sheetUrl = SYNC_DEFAULTS.sheetUrl;
+        if(!c.secret) c.secret = SYNC_DEFAULTS.secret;
+        if(!c.firebaseUrl) c.firebaseUrl = SYNC_DEFAULTS.firebaseUrl;
+        if(!c.firebaseNode) c.firebaseNode = SYNC_DEFAULTS.firebaseNode;
+        var courseOpts = (sysConfig.attCourses || []).map(function(cc){
+          var sel = (c.courses || []).indexOf(ck(cc)) >= 0 ? " checked" : "";
+          return '<label><input type="checkbox" value="' + ck(cc) + '"' + sel + "> " + courseDisplay(cc) + "</label>";
+        }).join("");
+        document.getElementById("sync-enabled").checked = !!c.enabled;
+        document.getElementById("sync-mode").value = c.mode || "pull";
+        document.getElementById("sync-sheeturl").value = c.sheetUrl || "";
+        document.getElementById("sync-secret").value = c.secret || "";
+        document.getElementById("sync-courses").innerHTML = courseOpts;
+        document.getElementById("sync-firebaseurl").value = c.firebaseUrl || "";
+        document.getElementById("sync-firebasenode").value = c.firebaseNode || "attendanceSync";
+        document.getElementById("sync-firebasesecret").value = c.firebaseSecret || "";
+        document.getElementById("sync-poll").value = c.pollMin || 2;
+        document.getElementById("sync-autoenroll").checked = !!c.autoEnroll;
+        var st = document.getElementById("sync-modal-status");
+        if(st){
+          st.textContent = c.enabled ? ("Auto-sync ON · last synced " + (c.lastSync ? this.ago(c.lastSync) : "never") + (c.lastCount ? (" · +" + c.lastCount + " scanned") : "")) : "Auto-sync is OFF · enable to pull TA scans automatically";
+          st.className = c.enabled ? (c.status === "error" ? "err" : "on") : "";
+        }
+        this.showStoredDiag();
+        document.getElementById("cloud-sync-modal").style.display = "flex";
+      },
+      closeModal: function(){ document.getElementById("cloud-sync-modal").style.display = "none"; },
+      save: async function(){
+        var c = this.cfg();
+        c.enabled = document.getElementById("sync-enabled").checked;
+        c.mode = document.getElementById("sync-mode").value;
+        c.sheetUrl = document.getElementById("sync-sheeturl").value.trim();
+        c.secret = document.getElementById("sync-secret").value.trim();
+        c.courses = Array.from(document.querySelectorAll("#sync-courses input[type=checkbox]:checked")).map(function(o){ return o.value; });
+        c.firebaseUrl = document.getElementById("sync-firebaseurl").value.trim();
+        c.firebaseNode = document.getElementById("sync-firebasenode").value.trim() || "attendanceSync";
+        c.firebaseSecret = document.getElementById("sync-firebasesecret").value.trim();
+        c.pollMin = parseInt(document.getElementById("sync-poll").value) || 2;
+        c.autoEnroll = document.getElementById("sync-autoenroll").checked;
+        await db.put("settings", { key:"config", value: sysConfig });
+        this.closeModal(); this.renderStatus();
+        if(c.enabled) this.start(); else this.stop();
+        alert("Cloud Sync settings saved.");
+      },
+      showStoredDiag: function(){
+        var c = this.cfg();
+        if(c.status === "error" && c.lastError){ this.setDiag("<strong>Last sync failed:</strong> " + c.lastError, "err"); }
+        else if(c.status === "synced"){ this.setDiag("<strong>Sync OK.</strong> Last check " + (c.lastSync ? this.ago(c.lastSync) : "just now") + (c.lastCount ? " — " + c.lastCount + " record(s) added." : "."), "ok"); }
+        else { this.setDiag(""); }
+      },
+      testConnection: async function(){
+        var c = this.cfg();
+        if(!c.sheetUrl){ this.setDiag("Please enter the Apps Script URL first.", "err"); return; }
+        if(c.sheetUrl.indexOf("/dev") > -1){ this.setDiag("<strong>Wrong URL.</strong> You are using a <code>/dev</code> (test) URL. The HTML app needs the <code>/exec</code> URL from your Web App deployment.", "err"); return; }
+        this.setDiag("Testing connection…", "info");
+        var self = this;
+        try {
+          var url = c.sheetUrl + (c.sheetUrl.indexOf("?") >= 0 ? "&" : "?") + "secret=" + encodeURIComponent(c.secret || "") + "&callback=syncApp._testJsonp&_=" + Date.now();
+          var s = document.createElement("script");
+          s.onerror = function(){ self.setDiag("<strong>Connection failed.</strong> The browser could not load the Apps Script URL. Most likely causes: (1) the URL ends in /dev instead of /exec, (2) the Apps Script deployment <strong>'Who has access'</strong> is set to 'Only me' or 'Anyone with Google account' — it MUST be <strong>'Anyone'</strong>, otherwise Google redirects to a login page and the call fails, (3) the network is offline, or (4) the deployment was deleted.", "err"); };
+          syncApp._testPending = function(resp){
+            if(resp && resp.error){ self.setDiag("<strong>Server rejected the request.</strong> " + (resp.error.message || resp.error) + " (usually wrong secret)", "err"); }
+            else if(resp && typeof resp.count === "number"){ self.setDiag("<strong>Connection OK.</strong> Server responded. Scans found: " + resp.count + ".", "ok"); }
+            else { self.setDiag("<strong>Unexpected response.</strong> The URL returned data, but not in the expected format.", "err"); }
+          };
+          syncApp._testJsonp = function(resp){ if(syncApp._testPending) syncApp._testPending(resp); };
+          document.body.appendChild(s); s.src = url;
+          setTimeout(function(){ if(syncApp._testPending){ syncApp._testPending = null; self.setDiag("<strong>Connection timed out.</strong> The Apps Script did not respond within 60 seconds. Google Apps Script is often slow on its first run after inactivity (a 'cold start'). Please try again — it usually succeeds on the second attempt.", "err"); } }, 60000);
+        } catch(e){ this.setDiag("<strong>Test error:</strong> " + e.message, "err"); }
+      },
+      testNow: async function(){
+        this.setDiag("<strong>Syncing…</strong> Pulling TA scans from the sheet. This can take up to a minute on the first call (Google Apps Script cold start).", "info");
+        var did = await this.run(true);
+        var c = this.cfg();
+        if(c.status === "error"){ this.setDiag("<strong>Sync failed.</strong> " + (c.lastError || "Unknown error."), "err"); }
+        else if(did > 0){ this.setDiag("<strong>Sync complete.</strong> " + did + " student(s) marked Present from the scan sheet.", "ok"); }
+        else { this.setDiag("<strong>Sync complete.</strong> No new scans to import (all matching records were already Present).", "ok"); }
+      },
+      runUI: function(){
+        var b = document.getElementById("sync-btn");
+        if(b){ b.classList.remove("err","ok"); b.classList.add("spin"); b.title = "Syncing…"; }
+        var self = this;
+        // One-off manual sync works whether or not auto-sync is enabled.
+        Promise.resolve(this.run(true)).then(function(did){
+          if(b){ b.classList.remove("spin");
+            var c = self.cfg();
+            if(c.status === "error"){ b.classList.add("err"); b.title = "Sync failed — check Cloud Sync Settings"; }
+            else { b.classList.add("ok"); b.title = "Synced — last " + (c.lastSync ? self.ago(c.lastSync) : "now") + (c.lastCount ? ("  +" + c.lastCount) : "") + (did > 0 ? " · " + did + " marked Present" : ""); }
+            setTimeout(function(){ b.classList.remove("err","ok"); }, 1600);
+          }
+        });
+      }
+    };
+
     // --- DASHAPP ---
-    dashApp = { weeks: [], tasks: {}, openWeeks: {1:true}, currentWeek: 0, init: async function() { this.weeks = Array.from({length: sysConfig.totalWeeks}, (_, i) => i + 1); this.calcTime(); this.startWatch(); if(this.currentWeek>0 && this.currentWeek<=sysConfig.totalWeeks) { this.openWeeks={}; this.openWeeks[this.currentWeek]=true; } const recs = await db.getAll('tasks'); recs.forEach(r => this.tasks[r.key] = r); this.render(); if(noteApp && noteApp.init) noteApp.init(); if(attApp && attApp.setCurrWeek) attApp.setCurrWeek(this.currentWeek); }, calcTime: function() { const start = new Date(sysConfig.startDate); start.setHours(0,0,0,0); const today = new Date(); today.setHours(0,0,0,0); const diff = Math.round((today - start)/(1000*60*60*24)); this.currentWeek = diff < 0 ? 0 : Math.floor(diff/7)+1; this._dayStamp = today.toDateString(); return this.currentWeek; },
+    dashApp = { weeks: [], tasks: {}, openWeeks: {1:true}, currentWeek: 0, init: async function() { this.weeks = Array.from({length: sysConfig.totalWeeks}, (_, i) => i + 1); this.calcTime(); this.startWatch(); if(this.currentWeek>0 && this.currentWeek<=sysConfig.totalWeeks) { this.openWeeks={}; this.openWeeks[this.currentWeek]=true; } const recs = await db.getAll('tasks'); recs.forEach(r => this.tasks[r.key] = r); this.render(); if(noteApp && noteApp.init) noteApp.init(); if(attApp && attApp.setCurrWeek) attApp.setCurrWeek(this.currentWeek);
+        if(typeof syncApp !== "undefined" && syncApp && syncApp.init) syncApp.init(); }, calcTime: function() { const start = new Date(sysConfig.startDate); start.setHours(0,0,0,0); const today = new Date(); today.setHours(0,0,0,0); const diff = Math.round((today - start)/(1000*60*60*24)); this.currentWeek = diff < 0 ? 0 : Math.floor(diff/7)+1; this._dayStamp = today.toDateString(); return this.currentWeek; },
         /* v2: keeps the week in sync with the device clock even if the page is never refreshed */
         liveRefresh: function(force) {
             const today = new Date(); today.setHours(0,0,0,0); const stamp = today.toDateString();
