@@ -251,9 +251,9 @@
 
 
         /* --- CLOUD SYNC MODAL - system (UG navy) theme --- */
-        .cs-modal-overlay { position: fixed; inset: 0; background: rgba(0, 33, 71, 0.42); backdrop-filter: blur(5px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; }
-        .cs-modal-card { background: #ffffff; color: #1a1a1a; width: 100%; max-width: 640px; border-radius: 22px; box-shadow: 0 28px 90px rgba(0,0,0,0.28); border: 1px solid rgba(0, 50, 98, 0.18); overflow: hidden; }
-        .cs-modal-header { display: flex; align-items: center; gap: 16px; padding: 22px 28px; border-bottom: 1px solid rgba(0, 50, 98, 0.12); background: var(--ug-blue); }
+        .cs-modal-overlay { position: fixed; inset: 0; background: rgba(0, 33, 71, 0.42); backdrop-filter: blur(5px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        .cs-modal-card { background: #ffffff; color: #1a1a1a; width: 100%; max-width: 640px; max-height: calc(100vh - 40px); border-radius: 22px; box-shadow: 0 28px 90px rgba(0,0,0,0.28); border: 1px solid rgba(0, 50, 98, 0.18); overflow: hidden; display: flex; flex-direction: column; }
+        .cs-modal-header { display: flex; align-items: center; gap: 16px; padding: 22px 28px; border-bottom: 1px solid rgba(0, 50, 98, 0.12); background: var(--ug-blue); flex: 0 0 auto; }
         .cs-sync-icon { width: 48px; height: 48px; border-radius: 16px; background: #ffffff; display: flex; align-items: center; justify-content: center; color: var(--ug-blue); font-size: 1.45rem; box-shadow: 0 6px 18px rgba(0,0,0,0.22); flex: 0 0 auto; }
         .cs-modal-title { flex: 1; }
         .cs-modal-title h3 { margin: 0; font-size: 1.25rem; color: #ffffff; letter-spacing: 0.2px; }
@@ -262,7 +262,7 @@
         .cs-modal-title span.err { color: #ffd1d1; font-weight: 600; }
         .cs-modal-close { margin-left: auto; background: rgba(255,255,255,0.14); border: none; color: #ffffff; width: 36px; height: 36px; border-radius: 10px; cursor: pointer; transition: 0.2s; font-size: 1rem; }
         .cs-modal-close:hover { background: rgba(255,255,255,0.26); }
-        .cs-modal-body { padding: 26px 28px; background: #ffffff; }
+        .cs-modal-body { padding: 26px 28px; background: #ffffff; overflow-y: auto; flex: 1 1 auto; -webkit-overflow-scrolling: touch; }
         .cs-section { margin-bottom: 18px; }
         .cs-section-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ug-blue); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
         .cs-input { width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 10px; padding: 11px 14px; color: #1a1a1a; font-size: 0.94rem; outline: none; transition: 0.2s; box-sizing: border-box; }
@@ -287,7 +287,7 @@
         .cs-check-row { display: flex; align-items: flex-end; padding-bottom: 10px; }
         .cs-check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.9rem; color: #374151; line-height: 1.45; }
         .cs-check input { margin-top: 3px; accent-color: var(--ug-blue); width: 16px; height: 16px; }
-        .cs-modal-footer { display: flex; justify-content: flex-end; gap: 10px; padding: 20px 28px; border-top: 1px solid #f3f4f6; background: #fafafa; }
+        .cs-modal-footer { display: flex; justify-content: flex-end; gap: 10px; padding: 20px 28px; border-top: 1px solid #f3f4f6; background: #fafafa; flex: 0 0 auto; }
         .cs-btn { padding: 11px 18px; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 7px; }
         .cs-btn-primary { background: var(--ug-blue); color: #ffffff; }
         .cs-btn-primary:hover { background: #00203f; }
@@ -368,8 +368,8 @@
 
           /* Modals go near-full-screen and stay comfortable */
           .modal-content { width: 96vw !important; padding: 18px !important; margin: 4% auto !important; }
-          .cs-modal-overlay { padding: 10px; }
-          .cs-modal-card { border-radius: 16px; }
+          .cs-modal-overlay { padding: 10px; overflow-y: auto; align-items: flex-start; }
+          .cs-modal-card { border-radius: 16px; max-height: calc(100vh - 20px); }
           .cs-modal-header { padding: 16px 18px; }
           .cs-modal-body { padding: 18px 16px; }
           .cs-modal-footer { flex-wrap: wrap; padding: 14px 16px; }
